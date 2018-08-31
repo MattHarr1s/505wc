@@ -1,0 +1,4 @@
+{
+  "hostname": "server-domain-name",
+  "destination": "path-to-plugin-on-server"
+}
