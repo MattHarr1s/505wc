@@ -1,6 +1,6 @@
 <?php
 /**
- * Hook in and add a metabox that only appears on the 'campes' template
+ * Hook in and add a metabox that only appears on the 'camps' template
  */
 
  if(!function_exists('camp_metabox')){
@@ -15,10 +15,16 @@
          'show_names' => true
    ));
    		$cmb->add_field( array(
-   			'name' => __( 'Days of the week', 'cmb2' ),
-   			'desc' => __( 'Days of the week', 'cmb2' ),
-   			'id'   => $prefix . 'days',
-   			'type' => 'textarea'
+   			'name' => __( 'First Day', 'cmb2' ),
+   			'desc' => __( 'First Day', 'cmb2' ),
+   			'id'   => $prefix . 'first_date',
+   			'type' => 'text_date'
+   		));
+      $cmb->add_field( array(
+   			'name' => __( 'Second Day', 'cmb2' ),
+   			'desc' => __( 'Second Day', 'cmb2' ),
+   			'id'   => $prefix . 'second_date',
+   			'type' => 'text_date'
    		));
       $cmb->add_field( array(
    			'name' => __( 'Start Time', 'cmb2' ),
@@ -39,16 +45,29 @@
    			'type' => 'text_medium'
    		));
       $cmb->add_field( array(
-   			'name' => __( 'Cost Per Month', 'cmb2' ),
-   			'desc' => __( 'Cost Per Month', 'cmb2' ),
-   			'id'   => $prefix . 'monthly_fee',
+   			'name' => __( 'Cost For Members', 'cmb2' ),
+   			'desc' => __( 'Cost For Members', 'cmb2' ),
+   			'id'   => $prefix . 'members_cost',
    			'type' => 'text_medium'
    		));
       $cmb->add_field( array(
-   			'name' => __( 'Single Class Price', 'cmb2' ),
-   			'desc' => __( 'Single Class Price', 'cmb2' ),
-   			'id'   => $prefix . 'single_class_price',
+   			'name' => __( 'Cost For Non-Members', 'cmb2' ),
+   			'desc' => __( 'Cost For Non-Members', 'cmb2' ),
+   			'id'   => $prefix . 'non_members_cost',
    			'type' => 'text_medium'
+   		));
+      $cmb->add_field( array(
+   			'name' => __( 'Flyer', 'cmb2' ),
+   			'desc' => __( 'Flyer', 'cmb2' ),
+   			'id'   => $prefix . 'flyer',
+   			'type' => 'file'
+   		));
+      $cmb->add_field( array(
+   			'name' => __( 'Techniques Covered', 'cmb2' ),
+   			'desc' => __( 'Techniques Covered', 'cmb2' ),
+   			'id'   => $prefix . 'technique',
+   			'type' => 'text_medium',
+        'repeatable' => true
    		));
    }
  }
