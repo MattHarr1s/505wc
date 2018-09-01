@@ -17,7 +17,7 @@
    		$cmb->add_field( array(
    			'name' => __( 'Days of the week', 'cmb2' ),
    			'desc' => __( 'Days of the week', 'cmb2' ),
-   			'id'   => $prefix . 'phone',
+   			'id'   => $prefix . 'days',
    			'type' => 'textarea'
    		));
       $cmb->add_field( array(
