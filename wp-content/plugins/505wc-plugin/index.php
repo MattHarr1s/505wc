@@ -22,3 +22,4 @@ if (file_exists(dirname(__FILE__).'/cmb2/init.php')) {
 
 include_once dirname(__FILE__) . '/metaboxes/coach.php';
 include_once dirname(__FILE__) . '/metaboxes/practice.php';
+include_once dirname(__FILE__) . '/metaboxes/camp.php';

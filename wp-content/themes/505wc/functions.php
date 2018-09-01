@@ -3,9 +3,9 @@
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Theme Name' );
+define( 'CHILD_THEME_NAME', '505 WC Theme' );
 define( 'CHILD_THEME_URL', 'http://www.11online.us/' );
-define( 'CHILD_THEME_VERSION', '2.2.2' );
+define( 'CHILD_THEME_VERSION', '1.1.1' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -162,24 +162,24 @@ function remove_welcome_panel() {
 
 add_action( 'load-index.php', 'remove_welcome_panel' );
 
-//*only load woocommerce scripts on woocommerce pages 
+//*only load woocommerce scripts on woocommerce pages
 function conditionally_load_woc_js_css(){
 if( function_exists( 'is_woocommerce' ) ){
-        # Only load CSS and JS on Woocommerce pages   
-	if(! is_woocommerce() && ! is_cart() && ! is_checkout() ) { 		
-		
+        # Only load CSS and JS on Woocommerce pages
+	if(! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
+
 		## Dequeue scripts.
-		wp_dequeue_script('woocommerce'); 
-		wp_dequeue_script('wc-add-to-cart'); 
+		wp_dequeue_script('woocommerce');
+		wp_dequeue_script('wc-add-to-cart');
 		wp_dequeue_script('wc-cart-fragments');
-		
-		## Dequeue styles.	
-		wp_dequeue_style('woocommerce-general'); 
-		wp_dequeue_style('woocommerce-layout'); 
-		wp_dequeue_style('woocommerce-smallscreen'); 
-			
+
+		## Dequeue styles.
+		wp_dequeue_style('woocommerce-general');
+		wp_dequeue_style('woocommerce-layout');
+		wp_dequeue_style('woocommerce-smallscreen');
+
 		}
-	}	
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'conditionally_load_woc_js_css' );

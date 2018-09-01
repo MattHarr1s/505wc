@@ -9,12 +9,18 @@
      $cmb = new_cmb2_box(array(
      'id' => $prefix . '_metabox',
      'title' => 'Custom Fields',
-     'object_types' => array('page'), //Post type
-     'show_on' => array( 'key' => 'page-template', 'value' => 'coach.php' ),
+     'object_types' => array('coach'), //Post type
      'context' => 'normal',
      'priority' => 'high',
          'show_names' => true
    ));
+ 		$cmb->add_field( array(
+ 			'name' => __( 'Role', 'cmb2' ),
+ 			'desc' => __( 'Coaching role', 'cmb2' ),
+ 			'id'   => $prefix . 'role',
+ 			'type' => 'text'
+ 		));
+
    		$cmb->add_field( array(
    			'name' => __( 'Phone number', 'cmb2' ),
    			'desc' => __( 'Phone number', 'cmb2' ),
@@ -50,8 +56,12 @@
   				'id' => 'accomplishment',
   				'type' => 'text',
   			));
-
-
-
+    			$cmb->add_group_field($group_field_id, array(
+  				'name' => 'School or Club',
+  				'id' => 'school',
+  				'type' => 'text',
+  			));
    }
  }
+
+add_action('cmb2_admin_init', 'coach_metabox');

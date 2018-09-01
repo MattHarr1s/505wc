@@ -1,51 +1,56 @@
 <?php
 /**
- * Hook in and add a metabox that only appears on the 'Coaches' template
+ * Hook in and add a metabox that only appears on the 'practicees' template
  */
 
- if(!function_exists('coach_metabox')){
-   function coach_metabox(){
-     $prefix = '_coach_';
+ if(!function_exists('practice_metabox')){
+   function practice_metabox(){
+     $prefix = '_practice_';
      $cmb = new_cmb2_box(array(
      'id' => $prefix . '_metabox',
      'title' => 'Custom Fields',
-     'object_types' => array('page'), //Post type
-     'show_on' => array( 'key' => 'page-template', 'value' => 'coach.php' ),
+     'object_types' => array('practice'), //Post type
      'context' => 'normal',
      'priority' => 'high',
          'show_names' => true
    ));
    		$cmb->add_field( array(
-   			'name' => __( 'Phone number', 'cmb2' ),
-   			'desc' => __( 'Phone number', 'cmb2' ),
+   			'name' => __( 'Days of the week', 'cmb2' ),
+   			'desc' => __( 'Days of the week', 'cmb2' ),
    			'id'   => $prefix . 'phone',
-   			'type' => 'text'
+   			'type' => 'textarea'
    		));
       $cmb->add_field( array(
-   			'name' => __( 'Email', 'cmb2' ),
-   			'desc' => __( 'Email', 'cmb2' ),
-   			'id'   => $prefix . 'email',
-   			'type' => 'text_email'
+   			'name' => __( 'Start Time', 'cmb2' ),
+   			'desc' => __( 'Start Time', 'cmb2' ),
+   			'id'   => $prefix . 'start_time',
+   			'type' => 'text_time'
    		));
-    	$group_field_id = $cmb->add_field(array(
-  				'id' => $prefix . 'Accomplishments',
-  				'type' => 'group',
-  				'description' => __('Accomplishments for coaches', 'cmb2'),
-  				'options' => array(
-  					'group_title' => __('Accomplishments{#}', 'cmb2'),
-  					'add_button' => __('Add Another Section', 'cmb2'),
-  					'remove_button' => __('Remove Section', 'cmb2'),
-  					'sortable' => true,
-  					'repeatable' => true,
-  				),
-  			));
-  			$cmb->add_group_field($group_field_id, array(
-  				'name' => 'Accomplishment',
-  				'id' => 'accomplishment',
-  				'type' => 'text',
-  			));
-
-
-
+      $cmb->add_field( array(
+   			'name' => __( 'End Time', 'cmb2' ),
+   			'desc' => __( 'End Time', 'cmb2' ),
+   			'id'   => $prefix . 'end_time',
+   			'type' => 'text_time'
+   		));
+      $cmb->add_field( array(
+   			'name' => __( 'Age range', 'cmb2' ),
+   			'desc' => __( 'Age Range', 'cmb2' ),
+   			'id'   => $prefix . 'age_range',
+   			'type' => 'text_medium'
+   		));
+      $cmb->add_field( array(
+   			'name' => __( 'Cost Per Month', 'cmb2' ),
+   			'desc' => __( 'Cost Per Month', 'cmb2' ),
+   			'id'   => $prefix . 'monthly_fee',
+   			'type' => 'text_medium'
+   		));
+      $cmb->add_field( array(
+   			'name' => __( 'Single Class Price', 'cmb2' ),
+   			'desc' => __( 'Single Class Price', 'cmb2' ),
+   			'id'   => $prefix . 'single_class_price',
+   			'type' => 'text_medium'
+   		));
    }
  }
+
+ add_action('cmb2_admin_init', 'practice_metabox');
