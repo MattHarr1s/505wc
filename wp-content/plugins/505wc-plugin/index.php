@@ -20,7 +20,5 @@ if (file_exists(dirname(__FILE__).'/cmb2/init.php')) {
     require_once dirname(__FILE__).'/CMB2/init.php';
 }
 
-include_once dirname(__FILE__) . '/metaboxes/about.php';
-include_once dirname(__FILE__) . '/metaboxes/people.php';
-include_once dirname(__FILE__) . '/metaboxes/affiliate.php';
-include_once dirname(__FILE__) . '/metaboxes/page.php';
+include_once dirname(__FILE__) . '/metaboxes/coach.php';
+include_once dirname(__FILE__) . '/metaboxes/practice.php';
