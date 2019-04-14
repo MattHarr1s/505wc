@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* # Genesis Custom Starter Theme
- *Theme Name: 505 WC Theme
+ *Theme Name: Theme Name
  *Theme URI: http://11online.us
  *Description: This is the 11 Online Starter Theme
  *Author: 11 Online
@@ -602,7 +602,7 @@ th {
  *--------------------------------------------- */
 .site-inner, .wrap {
   margin: 0 auto;
-  max-width: 1200px; }
+  max-width: 95%; }
 
 .site-inner {
   clear: both;
@@ -1511,14 +1511,19 @@ li.comment {
   background-position: center !important;
   padding: 300px 0;
   text-align: center; }
+  .home-widget-1 h1 {
+    font-size: 60px;
+    color: #fff; }
 
 .home-widget-2 {
-  background: #333;
-  color: #fff;
+  background: #fff;
+  color: #000;
   text-align: center;
   padding: 150px 0; }
   .home-widget-2 .widget-title {
-    color: #fff; }
+    color: #000; }
+  .home-widget-2 .practice-details p {
+    margin: 0 auto; }
 
 .home-widget-3 {
   text-align: center;
@@ -1596,6 +1601,4 @@ li.comment {
       position: relative !important;
       padding-bottom: 50% !important; } }
 
-
-
-/*# sourceMappingURL=maps/style.css.map */
+/*# sourceMappingURL=style.css.map */

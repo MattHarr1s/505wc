@@ -21,10 +21,13 @@ function add_home_page_widgets() {
 		'before' => '<div id="home-widget-1" class="home-widget-1 widget-area"><div class="wrap">',
 		'after'  => '</div></div>',
   ) );
+
   ?>
+
   <div id="home-widget-2" class="home-widget-2 widget-area">
     <div class="wrap">
-      <h1>Practices</h1>
+      <h1><?php echo get_post_meta(get_the_ID(), '_wc_front_page_metabox_practice_heading', true );?></h1>
+      <p><?php echo get_post_meta(get_the_ID(), '_wc_front_page_metabox_practice_text', true );?>
       <?php
         $args = array(
         'post_type' => 'practice',
@@ -70,43 +73,41 @@ function add_home_page_widgets() {
               }
             }
             $title = get_the_title();
-            $days = get_post_meta(get_the_id(), '_practice_metabox_days', true );
-            $startTime = get_post_meta(get_the_id(), '_practice_metabox_start_time', true );
-            $endTime = get_post_meta(get_the_id(), '_practice_metabox_end_time', true );
-            $ageRange = get_post_meta(get_the_id(), '_practice_metabox_age_range', true );
-            $monthlyFee = get_post_meta(get_the_id(), '_practice_metabox_monthly_fee', true );
-            $partTimeFee = get_post_meta(get_the_id(), '_practice_metabox_part_time_price', true );
+            $days = get_post_meta(get_the_id(), '_practice_days', true );
+            $startTime = get_post_meta(get_the_id(), '_practice_start_time', true );
+            $endTime = get_post_meta(get_the_id(), '_practice_end_time', true );
+            $ageRange = get_post_meta(get_the_id(), '_practice_age_range', true );
+            $monthlyFee = get_post_meta(get_the_id(), '_practice_monthly_fee', true );
+            $partTimeFee = get_post_meta(get_the_id(), '_practice_part_time_price', true );
 
-            $dailyFee = get_post_meta(get_the_id(), '_practice_metabox_single_class_price', true );
+            $dailyFee = get_post_meta(get_the_id(), '_practice_single_class_price', true );
 
             echo '<div class=" widget-2-practice '. $class. '">';
             if($title != '') {
               echo '<h1>'. $title .'</h1>';
             }
             echo '<div class="practice-details">';
-            echo '<p>';
             if($ageRange != '') {
-              echo 'Age Range:' . $ageRange;
+              echo '<p>Age Range: &nbsp; ' . $ageRange .'</p>';
             }
+
             if($days != '') {
-              echo 'Days:' .$days;
+              echo '<p>Days: &nbsp; ' . $days .'</p>';
             }
             if($startTime != '') {
-              echo 'Start Time:' . $startTime;
+              echo '<p>Start Time: &nbsp; ' . $startTime .'</p>';
             }
 
             if($endTime != '') {
-              echo 'End Time:' . $startTime;
+              echo '<p>End Time: &nbsp; ' . $startTime .'</p>';
             }
             if($monthlyFee != '') {
-              echo 'Full Time(Four Days a Week):' . $monthlyFee;
+              echo '<p>Full Time(Four Days a Week): &nbsp; ' . $monthlyFee .'</p>';
 
             }
             if($partTimeFee != '') {
-              echo 'Part Time(Two Days a Week):' . $partTimeFee;
-
+              echo '<p>Part Time(Two Days a Week): &nbsp; ' . $partTimeFee .'</p>';
             }
-            echo '</p>';
 
             echo '</div>';
             echo '</div>';
@@ -127,6 +128,14 @@ function add_home_page_widgets() {
 
     </div>
   <?php
+  genesis_widget_area( 'home-widget-3', array(
+		'before' => '<div id="home-widget-3" class="home-widget-3 widget-area"><div class="wrap">',
+		'after'  => '</div></div>',
+  ) );
+  genesis_widget_area( 'home-widget-4', array(
+		'before' => '<div id="home-widget-4" class="home-widget-4 widget-area"><div class="wrap">',
+		'after'  => '</div></div>',
+  ) );
   }
 }
 

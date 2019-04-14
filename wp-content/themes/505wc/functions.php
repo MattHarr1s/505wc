@@ -5,7 +5,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', '505 WC Theme' );
 define( 'CHILD_THEME_URL', 'http://www.11online.us/' );
-define( 'CHILD_THEME_VERSION', '1.1.1' );
+define( 'CHILD_THEME_VERSION', '1.1.2' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -106,7 +106,7 @@ add_filter( 'excerpt_more', 'eleven_online_excerpt_more' );
 add_filter('genesis_footer_creds_text', 'sp_footer_creds_filter');
 function sp_footer_creds_filter($creds)
 {
-    $creds = 'Copyright '.date('Y').' -  By 11 Online';
+    $creds = 'Copyright '.date('Y').' -  505 Wrestling Club';
 
     return $creds;
 }
@@ -125,8 +125,8 @@ include_once( get_stylesheet_directory() . '/custom-taxonomies/index.php' );
 
 //* Add support for custom header
 add_theme_support('custom-header', array(
-    'width' => 160,
-    'height' => 58,
+    'width' => 200,
+    'height' => 164,
     'header-selector' => '.site-title a',
     'header-text' => false,
     )
