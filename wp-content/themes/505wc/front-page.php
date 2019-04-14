@@ -75,14 +75,36 @@ function add_home_page_widgets() {
             $endTime = get_post_meta(get_the_id(), '_practice_metabox_end_time', true );
             $ageRange = get_post_meta(get_the_id(), '_practice_metabox_age_range', true );
             $monthlyFee = get_post_meta(get_the_id(), '_practice_metabox_monthly_fee', true );
+            $partTimeFee = get_post_meta(get_the_id(), '_practice_metabox_part_time_price', true );
+
             $dailyFee = get_post_meta(get_the_id(), '_practice_metabox_single_class_price', true );
 
             echo '<div class=" widget-2-practice '. $class. '">';
-            echo '<h1>'. $title .'</h1>';
+            if($title != '') {
+              echo '<h1>'. $title .'</h1>';
+            }
             echo '<div class="practice-details">';
             echo '<p>';
             if($ageRange != '') {
-              echo $ageRange;
+              echo 'Age Range:' . $ageRange;
+            }
+            if($days != '') {
+              echo 'Days:' .$days;
+            }
+            if($startTime != '') {
+              echo 'Start Time:' . $startTime;
+            }
+
+            if($endTime != '') {
+              echo 'End Time:' . $startTime;
+            }
+            if($monthlyFee != '') {
+              echo 'Full Time(Four Days a Week):' . $monthlyFee;
+
+            }
+            if($partTimeFee != '') {
+              echo 'Part Time(Two Days a Week):' . $partTimeFee;
+
             }
             echo '</p>';
 

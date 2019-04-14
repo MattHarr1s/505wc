@@ -45,6 +45,12 @@
    			'type' => 'text_medium'
    		));
       $cmb->add_field( array(
+   			'name' => __( 'Part Time Price', 'cmb2' ),
+   			'desc' => __( 'Part Time Price', 'cmb2' ),
+   			'id'   => $prefix . 'part_time_price',
+   			'type' => 'text_medium'
+   		));
+      $cmb->add_field( array(
    			'name' => __( 'Single Class Price', 'cmb2' ),
    			'desc' => __( 'Single Class Price', 'cmb2' ),
    			'id'   => $prefix . 'single_class_price',
