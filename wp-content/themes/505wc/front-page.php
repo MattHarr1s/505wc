@@ -99,7 +99,7 @@ function add_home_page_widgets() {
             }
 
             if($endTime != '') {
-              echo '<p>End Time: &nbsp; ' . $startTime .'</p>';
+              echo '<p>End Time: &nbsp; ' . $endTime .'</p>';
             }
             if($monthlyFee != '') {
               echo '<p>Full Time(Four Days a Week): &nbsp; ' . $monthlyFee .'</p>';
@@ -107,6 +107,10 @@ function add_home_page_widgets() {
             }
             if($partTimeFee != '') {
               echo '<p>Part Time(Two Days a Week): &nbsp; ' . $partTimeFee .'</p>';
+            }
+
+            if($dailyFee != '') {
+              echo '<p>Daily: &nbsp; ' . $dailyFee .'</p>';
             }
 
             echo '</div>';
