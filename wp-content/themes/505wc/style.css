@@ -880,9 +880,9 @@ a.alignright, img.alignright, .wp-caption.alignright {
  *---------------------------------------------------------------------------------------------------- */
 .site-header {
   background-color: #fff;
-  min-height: 160px; }
+  min-height: 45px; }
   .site-header .wrap {
-    padding: 40px 0; }
+    padding: 5px 0; }
 
 /* ## Title Area
  *--------------------------------------------- */
@@ -905,7 +905,7 @@ a.alignright, img.alignright, .wp-caption.alignright {
       color: #000; }
 
 .header-image .site-title > a {
-  background: url(images/logo.png) no-repeat left;
+  background: url(images/logo.png) no-repeat left !important;
   float: left;
   min-height: 60px;
   width: 100%; }
@@ -936,7 +936,7 @@ a.alignright, img.alignright, .wp-caption.alignright {
 .site-header {
   transition: all 1s ease-in-out;
   z-index: 0;
-  top: -160px;
+  top: -45px;
   left: 0;
   width: 100%; }
   .site-header.sticky {
@@ -947,7 +947,7 @@ a.alignright, img.alignright, .wp-caption.alignright {
     width: 100%; }
 
 body.sticky {
-  margin-top: 160px; }
+  margin-top: 45px; }
 
 /* # Site Navigation
  *---------------------------------------------------------------------------------------------------- */
@@ -1509,36 +1509,65 @@ li.comment {
 .home-widget-1 {
   background-size: cover !important;
   background-position: center !important;
-  padding: 300px 0;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+  padding: 100px 0;
   text-align: center; }
-  .home-widget-1 h1 {
+  .home-widget-1 .widget_custom_html h1 {
     font-size: 60px;
     color: #fff; }
+  .home-widget-1 .widget_custom_html p {
+    color: #fff;
+    font-size: 20px; }
+  .home-widget-1 .widget_custom_html .button {
+    background-color: transparent;
+    border: black 2px solid; }
+    .home-widget-1 .widget_custom_html .button:hover {
+      background-color: #c3251d; }
 
 .home-widget-2 {
   background: #fff;
   color: #000;
   text-align: center;
-  padding: 150px 0; }
+  padding: 50px 0; }
   .home-widget-2 .widget-title {
     color: #000; }
+  .home-widget-2 .practices-box {
+    height: auto;
+    width: auto;
+    margin-bottom: 20px; }
+    .home-widget-2 .practices-box .widget-2-practice {
+      margin-bottom: 2%; }
   .home-widget-2 .practice-details p {
+    margin: 0 auto; }
+  .home-widget-2 .payment {
+    max-width: 20%;
     margin: 0 auto; }
 
 .home-widget-3 {
+  background: -moz-radial-gradient(center, circle cover, #333 0%, #aaa 40%, #333 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #333), color-stop(40%, #aaa), color-stop(100%, #333));
+  background: -webkit-radial-gradient(center, circle cover, #333 0%, #aaa 40%, #333 100%);
+  background: -o-radial-gradient(center, circle cover, #333 0%, #aaa 40%, #333 100%);
+  background: -ms-radial-gradient(center, circle cover, #333 0%, #aaa 40%, #333 100%);
+  background: radial-gradient(center, circle cover, #333 0%, #aaa 40%, #333 100%);
+  background-color: #333;
   text-align: center;
-  padding: 150px 0; }
+  padding: 50px 0; }
+  .home-widget-3 p, .home-widget-3 li, .home-widget-3 h2, .home-widget-3 h1 {
+    color: #fff; }
 
 .home-widget-4 {
   background-size: cover !important;
   background-position: center !important;
-  padding: 150px 0;
+  padding: 50px 0;
   text-align: center; }
 
-.home-widget-5 {
-  text-align: center;
-  padding: 150px 0; }
+@media only screen and (max-width: 960px) {
+  .home-widget-1 .widget_custom_html h1 {
+    font-size: 32px; }
 
+  .home-widget-2 .payment {
+    max-width: 100%; } }
 .blog-hero {
   background-size: cover !important;
   background-position: center !important;

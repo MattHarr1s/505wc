@@ -82,7 +82,7 @@ function add_home_page_widgets() {
 
             $dailyFee = get_post_meta(get_the_id(), '_practice_single_class_price', true );
 
-            echo '<div class=" widget-2-practice '. $class. '">';
+            echo '<div class="widget-2-practice '. $class. '">';
             if($title != '') {
               echo '<h1>'. $title .'</h1>';
             }
@@ -115,22 +115,29 @@ function add_home_page_widgets() {
 
             echo '</div>';
             echo '</div>';
-
-
-
-
         }
         echo '</div>';
-
-
-
-
-
-
-
       ?>
-
+    </br>
+      <div class="payment">
+          <h2>Register</h2>
+          <form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="VHM86NE5JNTHY">
+              <table class="paypal-form">
+                  <tr><td><input type="hidden" name="on0" value="Frequency">Frequency</td></tr><tr><td><select name="os0">
+                  <option value="Full time">Full time : $100.00 USD - monthly</option>
+                  <option value="Part time">Part time : $85.00 USD - monthly</option>
+              </select> </td></tr>
+                  <tr><td><input type="hidden" name="on1" value="Wrestler's Name">Wrestler's Name</td></tr><tr><td><input type="text" name="os1" maxlength="200"></td></tr>
+              </table>
+              <input type="hidden" name="currency_code" value="USD">
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          </form>
+      </div>
     </div>
+  </div>
   <?php
   genesis_widget_area( 'home-widget-3', array(
 		'before' => '<div id="home-widget-3" class="home-widget-3 widget-area"><div class="wrap">',
