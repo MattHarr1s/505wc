@@ -4,6 +4,11 @@
  *
  */
 
+ //* Remove .site-inner
+add_filter( 'genesis_markup_site-inner', '__return_null' );
+add_filter( 'genesis_markup_content-sidebar-wrap_output', '__return_null' );
+add_filter( 'genesis_markup_content', '__return_null' );
+
 add_action( 'genesis_meta', 'starter_theme_home_genesis_meta' );
 function starter_theme_home_genesis_meta(){
 
@@ -119,7 +124,7 @@ function add_home_page_widgets() {
         echo '</div>';
       ?>
     </br>
-      <div class="payment">
+      <!-- <div class="payment">
           <h2>Register</h2>
           <form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input type="hidden" name="cmd" value="_s-xclick">
@@ -135,7 +140,7 @@ function add_home_page_widgets() {
               <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
               <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
           </form>
-      </div>
+      </div> -->
     </div>
   </div>
   <?php
@@ -143,10 +148,103 @@ function add_home_page_widgets() {
 		'before' => '<div id="home-widget-3" class="home-widget-3 widget-area"><div class="wrap">',
 		'after'  => '</div></div>',
   ) );
-  genesis_widget_area( 'home-widget-4', array(
-		'before' => '<div id="home-widget-4" class="home-widget-4 widget-area"><div class="wrap">',
-		'after'  => '</div></div>',
-  ) );
+?>
+<div id="home-widget-4" class="home-widget-4 widget-area">
+  <div class="wrap">
+    <h1><?php echo get_post_meta(get_the_ID(), '_wc_front_page_metabox_practice_heading', true );?></h1>
+    <p><?php echo get_post_meta(get_the_ID(), '_wc_front_page_metabox_practice_text', true );?>
+    <?php
+      $args = array(
+      'post_type' => 'coach',
+      'no_paging' => true,
+      );
+      $the_query = new WP_Query($args);
+      echo '<div class="coaches-box">';
+      // jordan's conditionals for front page widget 3 differing book amounts
+      if($the_query->have_posts()){
+        $count = 0;
+        $post_count = $the_query->post_count;
+        while($the_query->have_posts()){
+          $the_query->the_post();
+          var_dump($the_post);
+          $count ++;
+          if($post_count == 4) {
+            $class='one-fourth';
+            if($count % 4 == 1){
+              $class='one-fourth first';
+            }
+          }
+          else if($post_count == 3) {
+            $class='one-third';
+            if($count % 3 == 1){
+              $class='one-third first';
+            }
+          }
+          else if($post_count == 2) {
+            $class='one-half';
+            if($count % 2 == 1){
+              $class='one-half first';
+            }
+          }
+          else if($post_count == 5) {
+            $class='one-fifth';
+            if($count % 5 == 1){
+              $class='one-fifth first';
+            }
+          }
+          else if($post_count == 1) {
+            $class='full-width';
+            if($count == 1){
+              $class='full-width';
+            }
+          }
+          $name = get_the_title();
+          $role = get_post_meta(get_the_id(), '_coach_role', true );
+          var_dump($role);
+          $phone = get_post_meta(get_the_id(), '_coach_phone', true );
+          $endTime = get_post_meta(get_the_id(), '_practice_end_time', true );
+          $ageRange = get_post_meta(get_the_id(), '_practice_age_range', true );
+          $monthlyFee = get_post_meta(get_the_id(), '_practice_monthly_fee', true );
+          $partTimeFee = get_post_meta(get_the_id(), '_practice_part_time_price', true );
+
+          
+
+          echo '<div class="widget-4-coach '. $class. '">';
+          if($name != '') {
+            echo '<h1>'. $name .'</h1>';
+          }
+          echo '<div class="coach-details">';
+          if($role != '') {
+            echo '<p>'. $role .'</p>';
+          }
+
+          if($days != '') {
+            echo '<p>Days: &nbsp; ' . $days .'</p>';
+          }
+          if($startTime != '') {
+            echo '<p>Start Time: &nbsp; ' . $startTime .'</p>';
+          }
+
+          if($endTime != '') {
+            echo '<p>End Time: &nbsp; ' . $endTime .'</p>';
+          }
+          if($monthlyFee != '') {
+            echo '<p>Full Time(Four Days a Week): &nbsp; ' . $monthlyFee .'</p>';
+
+          }
+          if($partTimeFee != '') {
+            echo '<p>Part Time(Two Days a Week): &nbsp; ' . $partTimeFee .'</p>';
+          }
+
+          if($dailyFee != '') {
+            echo '<p>Daily: &nbsp; ' . $dailyFee .'</p>';
+          }
+
+          echo '</div>';
+          echo '</div>';
+      }
+      echo '</div></div></div>';
+    }
   }
 }
 

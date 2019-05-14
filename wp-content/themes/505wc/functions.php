@@ -163,7 +163,7 @@ function remove_welcome_panel() {
 add_action( 'load-index.php', 'remove_welcome_panel' );
 
 //*only load woocommerce scripts on woocommerce pages
-function conditionally_load_woc_js_css(){
+function conditionally_load_woc_js_css() {
 if( function_exists( 'is_woocommerce' ) ){
         # Only load CSS and JS on Woocommerce pages
 	if(! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
@@ -198,4 +198,11 @@ function eleven_online_add_hero_area()
             }
         }
     }
+}
+
+
+add_action( 'wp_enqueue_scripts', 'enqueue_load_fa' );
+function enqueue_load_fa()
+{
+	wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' );
 }

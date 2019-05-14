@@ -26,6 +26,18 @@ if(!function_exists('wc_register_front_page_metabox')) {
 			'id'   => $prefix . 'practice_text',
 			'type' => 'textarea'
 		));
+		$cmb->add_field( array(
+			'name' => __( 'Coaches Heading', 'cmb2' ),
+			'desc' => __( 'Heading above practice section', 'cmb2' ),
+			'id'   => $prefix . 'coach_heading',
+			'type' => 'text'
+		));
+		$cmb->add_field( array(
+			'name' => __( 'Practice Descriptions', 'cmb2' ),
+			'desc' => __( 'Text above the practices on the front page', 'cmb2' ),
+			'id'   => $prefix . 'coach_text',
+			'type' => 'textarea'
+		));
   }
 }
 add_action('cmb2_admin_init', 'wc_register_front_page_metabox');
