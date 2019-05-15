@@ -166,7 +166,6 @@ function add_home_page_widgets() {
         $post_count = $the_query->post_count;
         while($the_query->have_posts()){
           $the_query->the_post();
-          var_dump($the_post);
           $count ++;
           if($post_count == 4) {
             $class='one-fourth';
@@ -200,48 +199,47 @@ function add_home_page_widgets() {
           }
           $name = get_the_title();
           $role = get_post_meta(get_the_id(), '_coach_role', true );
-          var_dump($role);
           $phone = get_post_meta(get_the_id(), '_coach_phone', true );
-          $endTime = get_post_meta(get_the_id(), '_practice_end_time', true );
-          $ageRange = get_post_meta(get_the_id(), '_practice_age_range', true );
-          $monthlyFee = get_post_meta(get_the_id(), '_practice_monthly_fee', true );
+          $email = get_post_meta(get_the_id(), '_coach_email', true );
+          $headshot = get_post_meta(get_the_id(), '_coach_photo', true );
+          $accomplishments = get_post_meta(get_the_id(), '_coach_accomplishments', true );
           $partTimeFee = get_post_meta(get_the_id(), '_practice_part_time_price', true );
 
-          
+
 
           echo '<div class="widget-4-coach '. $class. '">';
           if($name != '') {
             echo '<h1>'. $name .'</h1>';
           }
           echo '<div class="coach-details">';
-          if($role != '') {
-            echo '<p>'. $role .'</p>';
-          }
+            if($role != '') {
+              echo '<p>'. $role .'</p>';
+            }
 
-          if($days != '') {
-            echo '<p>Days: &nbsp; ' . $days .'</p>';
-          }
-          if($startTime != '') {
-            echo '<p>Start Time: &nbsp; ' . $startTime .'</p>';
-          }
+            if($days != '') {
+              echo '<p>Days: &nbsp; ' . $days .'</p>';
+            }
+            if($startTime != '') {
+              echo '<p>Start Time: &nbsp; ' . $startTime .'</p>';
+            }
 
-          if($endTime != '') {
-            echo '<p>End Time: &nbsp; ' . $endTime .'</p>';
-          }
-          if($monthlyFee != '') {
-            echo '<p>Full Time(Four Days a Week): &nbsp; ' . $monthlyFee .'</p>';
+            if($endTime != '') {
+              echo '<p>End Time: &nbsp; ' . $endTime .'</p>';
+            }
+            if($monthlyFee != '') {
+              echo '<p>Full Time(Four Days a Week): &nbsp; ' . $monthlyFee .'</p>';
 
-          }
-          if($partTimeFee != '') {
-            echo '<p>Part Time(Two Days a Week): &nbsp; ' . $partTimeFee .'</p>';
-          }
+            }
+            if($partTimeFee != '') {
+              echo '<p>Part Time(Two Days a Week): &nbsp; ' . $partTimeFee .'</p>';
+            }
 
-          if($dailyFee != '') {
-            echo '<p>Daily: &nbsp; ' . $dailyFee .'</p>';
-          }
+            if($dailyFee != '') {
+              echo '<p>Daily: &nbsp; ' . $dailyFee .'</p>';
+            }
 
           echo '</div>';
-          echo '</div>';
+        echo '</div>';
       }
       echo '</div></div></div>';
     }

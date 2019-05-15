@@ -40,7 +40,7 @@
   			'type' => 'file'
   		));
     	$group_field_id = $cmb->add_field(array(
-  				'id' => $prefix . 'Accomplishments',
+  				'id' => $prefix . 'accomplishments',
   				'type' => 'group',
   				'description' => __('Accomplishments for coaches', 'cmb2'),
   				'options' => array(
